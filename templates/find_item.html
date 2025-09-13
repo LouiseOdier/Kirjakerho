@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Etsi kirjoja</title>
+</head>
+
+<body>
+    <h1> Etsi kirjoja </h1>
+
+    <form action="/find_item" method="get">
+        <p>
+            Hakusana: <input type="text" name="query" value="{{query}}">
+        </p>
+        <input type="submit" value="Lähetä">
+    </form>
+
+    <p>
+        <a href="/">Takaisin etusivulle</a>
+    </p>
+
+    {% if query %}
+    <h2>Haun tulokset</h2>
+    <ul>
+        {% for item in results %}
+        <li><a href="/item/{{item.id}}">{{item.title}}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+
+</html>

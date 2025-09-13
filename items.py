@@ -26,3 +26,11 @@ def update_item(item_id, title, writer, description):
                             description = ?
                         WHERE id = ?"""
     db.execute(sql, [title, writer, description, item_id])
+
+def find_items(query):
+    sql ="""SELECT id, title
+            FROM items
+            WHERE writer LIKE ?
+            ORDER BY id DESC"""
+    like = "%" + query + "%"
+    return db.query(sql, [like])
