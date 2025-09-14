@@ -8,3 +8,18 @@
 * Sovelluksessa on käyttäjäsivut, jotka näyttävät jokaisesta käyttäjästä tilastoja ja käyttäjän lisäämät kirjat.
 * Käyttäjä pystyy valitsemaan kirjoille yhden tai useamman luokittelun. Mahdolliset luokat ovat tietokannassa.
 * Sovelluksessa on pääasiallisen kuvauksen lisäksi (määritellyt luokat) toissijainen kuvaus, joka täydentää pääasiallista kuvausta (vapaa kuvaus). Käyttäjä pystyy lisäämään oman arvioinsa (vapaa kuvaus) muiden käyttäjien lisäämiin kirja-arvioihin mutta ei pysty muutoin muokkamaan niitä.
+
+# Sovelluksen asennus
+
+Asenna flask-kirjasto:
+
+<pre> pip install flask </pre>
+
+Luo tietokannan taulut ja lisää alkutiedot:
+
+<pre> sqlite3 database.db < scema.sql
+sqlite3 database.bd < init.sql </pre>
+
+Voit käynnistää sovelluksen näin:
+
+<pre> flask run </pre>
