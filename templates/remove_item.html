@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Kirjan poisto</title>
+</head>
+
+<body>
+  <h1> Kirjan poisto</h1>
+  <p>Kirja: {{item.title}}</p>
+  <p>Haluatko varmasti poistaa tämän kirjan</p>
+  <p>Lähtökohtaisesti Kirjakerhon arvioitavaksi lisättyjä kirjoja ei poisteta. Poistaminen tulee kyseeseen mm. epäsopivan sisällön vuoksi.</p>
+  <form action="/remove_item/{{item.id}}" method="post">
+    <input type="submit" name="remove" value="Poista ilmoitus">
+    <input type="submit" name="back" value="Palaa takaisin">
+    </form>
+</body>
+
+</html>
