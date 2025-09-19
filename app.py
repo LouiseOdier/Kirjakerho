@@ -1,6 +1,7 @@
 import sqlite3
 from flask import Flask
 from flask import redirect, render_template, request, session
+from flask import abort
 from werkzeug.security import generate_password_hash, check_password_hash
 import db
 import config
@@ -48,11 +49,17 @@ def create_item():
 @app.route("/edit_item/<int:item_id>")
 def edit_item(item_id):
     item=items.get_item(item_id)
+    if item["user_id"] != session["user_id"]:
+        abort(403)
     return render_template("edit_item.html", item=item)
 
 @app.route("/update_item", methods=["POST"])
 def update_item():
     item_id =request.form["item_id"]
+    item=items.get_item(item_id)
+    if item["user_id"] != session["user_id"]:
+        abort(403)
+
     title = request.form["title"]
     writer = request.form["writer"]
     description = request.form["description"]
@@ -63,8 +70,11 @@ def update_item():
 
 @app.route("/remove_item/<int:item_id>", methods=["GET", "POST"])
 def remove_item(item_id):
+    item=items.get_item(item_id)
+    if item["user_id"] != session["user_id"]:
+        abort(403)
+
     if request.method=="GET":
-        item=items.get_item(item_id)
         return render_template("remove_item.html", item=item)
     if request.method=="POST":
         if "remove" in request.form:
