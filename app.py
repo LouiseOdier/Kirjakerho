@@ -46,8 +46,14 @@ def new_item():
 def create_item():
     require_login()
     title = request.form["title"]
+    if not title or len(title)>50:
+        abort(403)
     writer = request.form["writer"]
+    if not writer or len(writer)>50:
+        abort(403)
     description = request.form["description"]
+    if len(description)>1000:
+        abort(403)
     user_id =session["user_id"]
 
     items.add_item(title, writer, description, user_id)
