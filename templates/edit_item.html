@@ -10,11 +10,11 @@
   <form action="/update_item" method="post">
     <p>
       Kirjan nimi: <br />
-      <input type="text" name="title" size="100" value="{{item.title}}"/>
+      <input type="text" name="title" size="100" value="{{item.title}}" maxlength="50" required/>
     </p>
     <p>
       Kirjoittaja: <br />
-      <input type="text" name="writer" size="100" value="{{item.writer}}"/>
+      <input type="text" name="writer" size="100" value="{{item.writer}}" maxlength="50" required/>
     </p>
     <p>
       Arvio: <br />
