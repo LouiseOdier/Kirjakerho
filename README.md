@@ -22,7 +22,7 @@ Asenna flask-kirjasto:
 
 Luo tietokannan taulut ja lisää alkutiedot:
 
-<pre> sqlite3 database.db < scema.sql
+<pre>sqlite3 database.db < scema.sql
 sqlite3 database.bd < init.sql </pre>
 
 Voit käynnistää sovelluksen näin:

@@ -150,10 +150,6 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         
-        #sql = "SELECT id, password_hash FROM users WHERE username = ?"
-        #result = db.query(sql, [username])[0]
-        #user_id = result["id"]
-        #password_hash = result["password_hash"]
         user_id = users.check_login(username, password)
 
         if user_id:
