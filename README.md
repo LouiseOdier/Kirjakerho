@@ -6,8 +6,13 @@
 * Käyttäjä pystyy etsimään kirjoja hakusanalla tai muulla perusteella. Käyttäjä pystyy hakemaan sekä itse lisäämiään että muiden käyttäjien lisäämiä kirjoja.
 * Käyttäjä pystyy lisäämään oman arvioinsa muiden käyttäjien lisäämiin kirja-arvioihin mutta ei pysty muutoin muokkamaan niitä.
 * Sovelluksessa on käyttäjäsivut, jotka näyttävät jokaisesta käyttäjästä tilastoja ja käyttäjän lisäämät kirjat.
-* Käyttäjä pystyy valitsemaan kirjoille yhden tai useamman luokittelun. Mahdolliset luokat ovat tietokannassa.
+* Käyttäjä pystyy valitsemaan kirjoille yhden tai useamman luokittelun, jotka on valmiiksi määritelty
 * Sovelluksessa on pääasiallisen kuvauksen lisäksi (määritellyt luokat) toissijainen kuvaus, joka täydentää pääasiallista kuvausta (vapaa kuvaus). Käyttäjä pystyy lisäämään oman arvioinsa (vapaa kuvaus) muiden käyttäjien lisäämiin kirja-arvioihin mutta ei pysty muutoin muokkamaan niitä.
+
+# Sovelluksen kehitysvaihe
+
+Sovellusta on lähdetty kehittämään hyvin pitkälle esimerkkiä noudattaen. Nyt kun sovelluksen "runko" alkaa olla
+valmis, sovellukseen lähdetään lisäämään Kirjakerhon toiminnalle ominaisia elementtejä.
 
 # Sovelluksen asennus
 
