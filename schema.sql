@@ -16,8 +16,8 @@ CREATE TABLE descriptions (
     id INTEGER PRIMARY KEY,
     item_id INTEGER REFERENCES items,
     user_id INTEGER REFERENCES users,
-    description TEXT,
-)
+    description TEXT
+);
 
 CREATE TABLE classes (
     id INTEGER PRIMARY KEY,

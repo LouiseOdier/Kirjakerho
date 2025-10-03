@@ -29,12 +29,11 @@ def add_description(item_id, user_id, new_description):
     db.execute(sql, [item_id, user_id, new_description])
 
 def get_descriptions(item_id):
-    sql = """SELECT descriptions.desription, users.id, users.username
+    sql = """SELECT descriptions.description, users.id user_id, users.username
             FROM descriptions, users
-            WHERE desriptions.items_id = ? AND descriptions.users_id = users.id
-            ORDER BY descriptions.id DESC"""
+            WHERE descriptions.item_id = ? AND descriptions.user_id = users.id
+            ORDER BY descriptions.id ASC"""
     return db.query(sql, [item_id])
-
 
 def get_classes(item_id):
     sql = "SELECT title, value FROM item_classes WHERE item_id=?"

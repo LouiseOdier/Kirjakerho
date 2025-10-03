@@ -45,7 +45,8 @@ def show_item(item_id):
     if not item:
         abort(404)
     classes = items.get_classes(item_id)
-    return render_template("show_item.html", item=item, classes=classes)
+    descriptions = items.get_descriptions(item_id)
+    return render_template("show_item.html", item=item, classes=classes, descriptions=descriptions)
 
 @app.route("/new_item")
 def new_item():

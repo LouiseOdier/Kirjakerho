@@ -30,6 +30,11 @@
   </p>
   {% endif %}
   <h2>Kirjoitetut arviot</h2>
+  <ul>
+    {% for description in descriptions %}
+    <li>{{description.description}}, <a href="/user/{{ description.user_id }}">{{description.username}}</a></li>
+    {% endfor %}
+  </ul>
   <p>
     {{item.description}}
   </p>
