@@ -1,12 +1,13 @@
 import sqlite3
 from flask import Flask
-from flask import redirect, render_template, request, session
+from flask import redirect, render_template, request, session, url_for
 from flask import abort
 from werkzeug.security import generate_password_hash, check_password_hash
 import db
 import config
 import items
 import users
+from urllib.parse import urlparse
 
 
 app = Flask(__name__)
@@ -39,13 +40,14 @@ def find_item():
         results = []
     return render_template("find_item.html", query=query, results=results)
 
-@app.route("/item/<int:item_id>")
+@app.route("/item/<int:item_id>", methods=["GET", "POST"])
 def show_item(item_id):
     item=items.get_item(item_id)
     if not item:
         abort(404)
     classes = items.get_classes(item_id)
     descriptions = items.get_descriptions(item_id)
+     
     return render_template("show_item.html", item=item, classes=classes, descriptions=descriptions)
 
 @app.route("/new_item")
@@ -172,7 +174,7 @@ def remove_item(item_id):
             items.remove_item(item_id)
             return redirect("/")
         else:
-            return redirect("/item" + str(item_id))
+            return redirect("/item/" + str(item_id))
 
 @app.route("/register")
 def register():
