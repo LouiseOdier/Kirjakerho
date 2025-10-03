@@ -32,12 +32,10 @@
   <h2>Kirjoitetut arviot</h2>
   <ul>
     {% for description in descriptions %}
-    <li>{{description.description}}, <a href="/user/{{ description.user_id }}">{{description.username}}</a></li>
+    <a href="/user/{{ description.user_id }}">{{description.username}}</a>
+    <li>{{description.description.replace('\n', '<br>') | safe}}</li>
     {% endfor %}
   </ul>
-  <p>
-    {{item.description}}
-  </p>
   <form action="/create_description" method="post">
     Lisää uusi arvio:<br />
       <textarea name="new_description" rows="8" cols="100", maxlength="1000"></textarea>
