@@ -17,9 +17,6 @@
     {{item.writer}}
   </p>
   <p>
-    {{item.description}}
-  </p>
-  <p>
     Kirjaprofiilin luoja: <a href="/user/{{item.user_id}}"> {{item.username}} </a>
   </p>
   {% if classes %}
@@ -32,6 +29,16 @@
     </ul>
   </p>
   {% endif %}
+  <h2>Kirjoitetut arviot</h2>
+  <p>
+    {{item.description}}
+  </p>
+  <form action="/create_description" method="post">
+    Lisää uusi arvio:<br />
+      <textarea name="new_description" rows="8" cols="100", maxlength="1000"></textarea>
+      <input type="hidden" name="item_id" value="{{ item.id }}">
+      <input type="submit" value="Lisää"/>
+  </form>
   <p>
     <a href="/">Takaisin etusivulle</a>
   </p>

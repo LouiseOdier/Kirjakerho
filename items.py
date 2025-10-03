@@ -24,6 +24,18 @@ def add_item(title, writer, description, user_id, classes):
     for title, value in classes:
         db.execute(sql, [item_id, title, value])
 
+def add_description(item_id, user_id, new_description):
+    sql = "INSERT INTO descriptions (item_id, user_id, description) VALUES (?, ?, ?)"
+    db.execute(sql, [item_id, user_id, new_description])
+
+def get_descriptions(item_id):
+    sql = """SELECT descriptions.desription, users.id, users.username
+            FROM descriptions, users
+            WHERE desriptions.items_id = ? AND descriptions.users_id = users.id
+            ORDER BY descriptions.id DESC"""
+    return db.query(sql, [item_id])
+
+
 def get_classes(item_id):
     sql = "SELECT title, value FROM item_classes WHERE item_id=?"
     return db.query(sql, [item_id])

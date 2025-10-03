@@ -83,6 +83,23 @@ def create_item():
 
     return redirect("/")
 
+@app.route("/create_description", methods=["POST"])
+def create_description():
+    require_login()
+
+    new_description = request.form["new_description"]
+    if len(new_description)>1000:
+        abort(403)
+    item_id = request.form["item_id"]
+    item = items.get_item(item_id)
+    if not item:
+        abort(403)
+    user_id =session["user_id"]
+
+    items.add_description(item_id, user_id, new_description)
+
+    return redirect("/item/" + str(item_id))
+
 @app.route("/edit_item/<int:item_id>")
 def edit_item(item_id):
     require_login()
