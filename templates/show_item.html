@@ -40,12 +40,13 @@
     Lisää uusi arvio:<br />
       <textarea name="new_description" rows="8" cols="100", maxlength="1000"></textarea>
       <input type="hidden" name="item_id" value="{{ item.id }}">
+      <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />
       <input type="submit" value="Lisää"/>
   </form>
+
   <p>
     <a href="/">Takaisin etusivulle</a>
   </p>
-  
 </body>
 
 </html>
