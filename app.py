@@ -96,7 +96,7 @@ def create_item():
     
     items.add_item(title, writer, description, user_id, classes)
 
-    return redirect("/")
+    return redirect("/books")
 
 @app.route("/create_description", methods=["POST"])
 def create_description():
@@ -167,7 +167,8 @@ def update_item():
             if class_value not in all_classes[class_title]:
                 abort(403)
             classes.append((class_title, class_value))
-   
+    if "back" in request.form:
+            return redirect("/item/" + str(item_id))
 
     items.update_item(item_id, title, writer, description, classes)
 

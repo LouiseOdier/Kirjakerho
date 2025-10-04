@@ -15,10 +15,6 @@
         <input type="submit" value="Lähetä">
     </form>
 
-    <p>
-        <a href="/">Takaisin etusivulle</a>
-    </p>
-
     {% if query %}
     <h2>Haun tulokset</h2>
     <ul>
@@ -27,6 +23,10 @@
         {% endfor %}
     </ul>
     {% endif %}
+    <p>
+        <li><a href="/books">Takaisin kirjaluetteloon</a></li>
+    </p>
+    
 </body>
 
 </html>
