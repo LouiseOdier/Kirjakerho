@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Kirjat</title>
+</head>
+
+<body>
+    <h1> Kirjat </h1>
+  {% if session.username %}
+  <p>
+    Olet kirjautunut nimellä {{ session.username }}
+  </p>
+  <p>
+    <a href="/new_item"> Lisää uusi kirja</a>
+  </p>
+  {% else %}
+
+  <p>
+    Mikäli haluat lisätä uuden kirjan,
+
+  <a href="/login">kirjaudu sisään</a>
+
+  {% endif %}
+  
+  <p>
+    <a href="/find_item"> Etsi kirja</a>  
+  </p>
+
+  <h2>Arvioidut kirjat</h2>
+
+  <ul>
+    {% for item in items %}
+    <li><a href="/item/{{item.id}}">{{item.title}}</a></li>
+    {% endfor %}
+  </ul>
+
+
+</body>
+
+</html>
