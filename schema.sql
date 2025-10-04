@@ -25,6 +25,12 @@ CREATE TABLE classes (
     value TEXT
 );
 
+CREATE TABLE stars (
+    id INTEGER PRIMARY KEY,
+    grading TEXT,
+    value INTEGER
+);
+
 CREATE TABLE item_classes (
     id INTEGER PRIMARY KEY,
     item_id INTEGER REFERENCES items,
