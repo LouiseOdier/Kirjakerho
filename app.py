@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Flask
-from flask import redirect, render_template, request, session
+from flask import redirect, render_template, request, session, flash
 from flask import abort
 from werkzeug.security import generate_password_hash, check_password_hash
 import db
@@ -230,7 +230,9 @@ def login():
             session["csrf_token"] = secrets.token_hex(16)
             return redirect("/")
         else:
-            return "VIRHE: väärä tunnus tai salasana"
+            flash("VIRHE: Väärä tunnus tai salasana")
+            return redirect("/login")
+            #return "VIRHE: väärä tunnus tai salasana"
 
 @app.route("/logout")
 def logout():
