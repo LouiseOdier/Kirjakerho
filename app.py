@@ -25,8 +25,7 @@ def check_csrf():
 
 @app.route("/")
 def index():
-    all_items=items.get_items()
-    return render_template("index.html", items=all_items)
+    return render_template("index.html")
 
 @app.route("/books")
 def books():
