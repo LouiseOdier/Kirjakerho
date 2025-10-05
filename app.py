@@ -42,13 +42,18 @@ def show_user(user_id):
 
 @app.route("/find_item")
 def find_item():
-    query = request.args.get("query")
-    if query:
-        results = items.find_items(query)
+
+    author = request.args.get("author")
+    book_name = request.args.get("book_name")
+    if author:
+        results = items.find_author(author)
+    elif book_name:
+        results = items.find_book_name(book_name)
     else:
-        query = ""
+        author = ""
+        book_name =""
         results = []
-    return render_template("find_item.html", query=query, results=results)
+    return render_template("find_item.html", author = author, book_name = book_name, results = results)
 
 @app.route("/item/<int:item_id>", methods=["GET", "POST"])
 def show_item(item_id):

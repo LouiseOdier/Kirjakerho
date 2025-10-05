@@ -7,15 +7,18 @@
 
 <body>
     <h1> Etsi kirjoja </h1>
-
+    <p>
+        Voit hakea kirjoja joko kirjailijan tai kirjan nimen mukaan
+    </p>
     <form action="/find_item" method="get">
         <p>
-            Hakusana: <input type="text" name="query" value="{{query}}">
+            Hae kirjailijan nimellä: <input type="text" name="author" value="{{author}}"> <br/>
+            Hae kirjan nimellä (jokin nimen osa riittää): <input type="text" name="book_name" value="{{book_name}}">
         </p>
         <input type="submit" value="Lähetä">
     </form>
 
-    {% if query %}
+    {% if author or book_name %}
     <h2>Haun tulokset</h2>
     <ul>
         {% for item in results %}
@@ -23,6 +26,7 @@
         {% endfor %}
     </ul>
     {% endif %}
+
     <p>
         <li><a href="/books">Takaisin kirjaluetteloon</a></li>
     </p>

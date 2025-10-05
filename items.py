@@ -82,10 +82,18 @@ def remove_item(item_id):
     sql = "DELETE FROM items WHERE id = ? "
     db.execute(sql, [item_id])
 
-def find_items(query):
+def find_author(query):
     sql ="""SELECT id, title
             FROM items
             WHERE writer LIKE ?
+            ORDER BY id DESC"""
+    like = "%" + query + "%"
+    return db.query(sql, [like])
+
+def find_book_name(query):
+    sql ="""SELECT id, title
+            FROM items
+            WHERE title LIKE ?
             ORDER BY id DESC"""
     like = "%" + query + "%"
     return db.query(sql, [like])
