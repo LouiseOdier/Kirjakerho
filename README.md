@@ -11,7 +11,7 @@
 
 # Sovelluksen kehitysvaihe
 
-Sovelluksen toiminnallisuudet on luotu. Muokkausominaisuus ei vielä sisällä vapaan kommentin ja tähtiluokituksen muokkausta. Ulkoasua ei vielä ole kehitetty juuri lainkaan, mikä onkin seuraava vaihe.
+Sovelluksen toiminnallisuudet on luotu. Ulkoasua ei vielä ole kehitetty juuri lainkaan, mikä onkin seuraava vaihe.
 
 # Sovelluksen asennus
 
