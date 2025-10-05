@@ -63,7 +63,19 @@ def get_item(item_id):
     result = db.query(sql, [item_id])
     return result[0] if result else None
 
-def update_item(item_id, title, writer, classes):
+def get_stars_description(item_id):
+    sql = """SELECT descriptions.item_id,
+                    descriptions.stars,
+                    descriptions.description,
+                    users.id user_id,
+                    users.username
+            FROM descriptions, users
+            WHERE descriptions.user_id=users.id AND
+            descriptions.item_id=?"""
+    result = db.query(sql, [item_id])
+    return result[0] if result else None
+
+def update_item(item_id, title, writer, classes, description, stars):
     sql = """UPDATE items SET title = ?, writer = ? WHERE id = ? """
     db.execute(sql, [title, writer, item_id])
 
@@ -73,6 +85,9 @@ def update_item(item_id, title, writer, classes):
     sql = "INSERT INTO item_classes (item_id, title, value) VALUES (?, ?, ?)"
     for title, value in classes:
         db.execute(sql, [item_id, title, value])
+
+    sql = "UPDATE descriptions SET description = ?, stars = ? WHERE id = ?"
+    db.execute(sql, [description, stars, item_id])
 
 def remove_item(item_id):
     sql = "DELETE FROM item_classes WHERE item_id = ?"

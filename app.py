@@ -142,8 +142,11 @@ def edit_item(item_id):
     for entry in items.get_classes(item_id):
         classes[entry["title"]] = entry["value"]
 
-    items.get_classes(item_id)
-    return render_template("edit_item.html", item=item, classes=classes, all_classes=all_classes)
+    getstars=items.get_stars_description(item_id)
+    print(getstars)
+    #items.get_classes(item_id)
+
+    return render_template("edit_item.html", item=item, classes=classes, all_classes=all_classes, getstars = getstars)
 
 @app.route("/update_item", methods=["POST"])
 def update_item():
@@ -167,6 +170,8 @@ def update_item():
     if len(description)>1000:
         abort(403)
     
+    stars=request.form["stars"]
+    
     all_classes = items.get_all_classes()
     classes = []
     for entry in request.form.getlist("classes"):
@@ -180,7 +185,7 @@ def update_item():
     if "back" in request.form:
             return redirect("/item/" + str(item_id))
 
-    items.update_item(item_id, title, writer, classes)
+    items.update_item(item_id, title, writer, classes, description, stars)
 
     return redirect("/item/" + str(item_id))
 
