@@ -215,7 +215,7 @@ def create():
     except sqlite3.IntegrityError:
         return "VIRHE: tunnus on jo varattu"
 
-    return redirect("/")
+    return redirect("/login")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

@@ -6,6 +6,7 @@
 </head>
 
 <body>
+  <h1>Kirjautuminen</h1>
   {% if session.username %}
   <p>
     Olet kirjautunut nimellä {{ session.username }}, id-tunnuksesi on {{session.user_id}}
@@ -16,11 +17,11 @@
   {% else %}
   <form action="/login" method="post">
     <p>
-      Tunnus: <br />
+      Syötä tunnus: <br />
       <input type="text" name="username" />
     </p>
     <p>
-      Salasana: <br />
+      Syötä salasana: <br />
       <input type="password" name="password" />
     </p>
     <input type="submit" value="Kirjaudu" />
@@ -32,6 +33,13 @@
     <b>{{ message }}</b>
   </p>
   {% endfor %}
+  <p>
+    Mikäli et ole vielä rekisteröitynyt, voit rekisteröityä täällä:
+    <a href="/register"> Rekisteröidy</a>
+  </p>
+  <p>
+    <a href="/">Takaisin etusivulle</a>
+  </p>
 </body>
 
 </html>
