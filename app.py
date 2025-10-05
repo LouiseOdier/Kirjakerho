@@ -175,7 +175,7 @@ def update_item():
     if "back" in request.form:
             return redirect("/item/" + str(item_id))
 
-    items.update_item(item_id, title, writer, description, classes)
+    items.update_item(item_id, title, writer, classes)
 
     return redirect("/item/" + str(item_id))
 

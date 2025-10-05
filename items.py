@@ -63,9 +63,7 @@ def get_item(item_id):
     return result[0] if result else None
 
 def update_item(item_id, title, writer, classes):
-    sql = """UPDATE items SET title = ?,
-                            writer = ?,
-                        WHERE id = ?"""
+    sql = """UPDATE items SET title = ?, writer = ? WHERE id = ? """
     db.execute(sql, [title, writer, item_id])
 
     sql = "DELETE FROM item_classes WHERE item_id = ?"
