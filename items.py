@@ -14,8 +14,8 @@ def get_all_classes():
     return classes
 
 def add_item(title, writer, description, user_id, classes, stars):
-    sql = "INSERT INTO items (title, writer, description, user_id) VALUES (?, ?, ?, ?)"
-    db.execute(sql, [title, writer, description, user_id])
+    sql = "INSERT INTO items (title, writer, user_id) VALUES (?, ?, ?)"
+    db.execute(sql, [title, writer, user_id])
 
     item_id = db.last_insert_id()
 
@@ -54,7 +54,6 @@ def get_item(item_id):
     sql = """SELECT items.id,
                     items.title,
                     items.writer,
-                    items.description,
                     users.id user_id,
                     users.username
             FROM items, users
@@ -63,12 +62,11 @@ def get_item(item_id):
     result = db.query(sql, [item_id])
     return result[0] if result else None
 
-def update_item(item_id, title, writer, description, classes):
+def update_item(item_id, title, writer, classes):
     sql = """UPDATE items SET title = ?,
                             writer = ?,
-                            description = ?
                         WHERE id = ?"""
-    db.execute(sql, [title, writer, description, item_id])
+    db.execute(sql, [title, writer, item_id])
 
     sql = "DELETE FROM item_classes WHERE item_id = ?"
     db.execute(sql, [item_id])
@@ -79,6 +77,8 @@ def update_item(item_id, title, writer, description, classes):
 
 def remove_item(item_id):
     sql = "DELETE FROM item_classes WHERE item_id = ?"
+    db.execute(sql, [item_id])
+    sql = "DELETE FROM descriptions WHERE item_id = ?"
     db.execute(sql, [item_id])
     sql = "DELETE FROM items WHERE id = ? "
     db.execute(sql, [item_id])
