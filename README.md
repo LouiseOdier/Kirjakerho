@@ -1,7 +1,7 @@
 # Kirjakerho
 
 * [x] Käyttäjä pystyy luomaan tunnuksen ja kirjautumaan sisään sovellukseen.
-*  Käyttäjä pystyy lisäämään sovellukseen kuvauksia kirjoista. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan lisäämiään kuvauksia.
+* [x] Käyttäjä pystyy lisäämään sovellukseen kuvauksia kirjoista. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan lisäämiään kuvauksia.
 * [x] Käyttäjä näkee sovellukseen lisätyt kuvaukset. Käyttäjä näkee sekä itse lisäämänsä että muiden käyttäjien lisäämät kuvaukset.
 * [x] Käyttäjä pystyy etsimään kirjoja hakusanalla tai muulla perusteella. Käyttäjä pystyy hakemaan sekä itse lisäämiään että muiden käyttäjien lisäämiä kirjoja.
 * [x] Käyttäjä pystyy lisäämään oman arvioinsa muiden käyttäjien lisäämiin kirja-arvioihin mutta ei pysty muutoin muokkamaan niitä.
