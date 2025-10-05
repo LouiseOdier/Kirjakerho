@@ -1,7 +1,7 @@
 # Kirjakerho
 
 * [x] Käyttäjä pystyy luomaan tunnuksen ja kirjautumaan sisään sovellukseen.
-* [x] Käyttäjä pystyy lisäämään sovellukseen kuvauksia kirjoista. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan lisäämiään kuvauksia.
+*  Käyttäjä pystyy lisäämään sovellukseen kuvauksia kirjoista. Lisäksi käyttäjä pystyy muokkaamaan ja poistamaan lisäämiään kuvauksia.
 * [x] Käyttäjä näkee sovellukseen lisätyt kuvaukset. Käyttäjä näkee sekä itse lisäämänsä että muiden käyttäjien lisäämät kuvaukset.
 * [x] Käyttäjä pystyy etsimään kirjoja hakusanalla tai muulla perusteella. Käyttäjä pystyy hakemaan sekä itse lisäämiään että muiden käyttäjien lisäämiä kirjoja.
 * [x] Käyttäjä pystyy lisäämään oman arvioinsa muiden käyttäjien lisäämiin kirja-arvioihin mutta ei pysty muutoin muokkamaan niitä.
@@ -11,7 +11,7 @@
 
 # Sovelluksen kehitysvaihe
 
-Sovelluksen toiminnallisuudet on luotu. Ulkoasua ei vielä ole kehitetty juuri lainkaan, mikä onkin seuraava vaihe.
+Sovelluksen toiminnallisuudet on luotu. Muokkausominaisuus ei vielä sisällä vapaan kommentin ja tähtiluokituksen muokkausta. Ulkoasua ei vielä ole kehitetty juuri lainkaan, mikä onkin seuraava vaihe.
 
 # Sovelluksen asennus
 
