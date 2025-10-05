@@ -143,8 +143,6 @@ def edit_item(item_id):
         classes[entry["title"]] = entry["value"]
 
     getstars=items.get_stars_description(item_id)
-    print(getstars)
-    #items.get_classes(item_id)
 
     return render_template("edit_item.html", item=item, classes=classes, all_classes=all_classes, getstars = getstars)
 
@@ -171,6 +169,7 @@ def update_item():
         abort(403)
     
     stars=request.form["stars"]
+    print(stars)
     
     all_classes = items.get_all_classes()
     classes = []

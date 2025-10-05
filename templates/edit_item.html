@@ -44,7 +44,7 @@
     </p>
     <p>
       Arvio: <br />
-      <textarea name="description" rows="8" cols="100">{{getstars.description}}</textarea>
+      <textarea name="description" rows="8" cols="100" required>{{getstars.description}}</textarea>
     </p>
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />
     <input type="submit" value="Päivitä kirjan tiedot" />
