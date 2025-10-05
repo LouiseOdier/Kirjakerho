@@ -194,7 +194,7 @@ def remove_item(item_id):
         check_csrf()
         if "remove" in request.form:
             items.remove_item(item_id)
-            return redirect("/")
+            return redirect("/books")
         else:
             return redirect("/item/" + str(item_id))
 
