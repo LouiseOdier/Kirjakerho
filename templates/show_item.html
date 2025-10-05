@@ -38,6 +38,9 @@
   </p>
   {% endif %}
   <h2>Kirjoitetut arviot</h2>
+  <p>
+    Kirjan saamat tähdet: {{av_stars}}
+  </p>
   <ul>
     {% for description in descriptions %}
     Käyttäjän <a href="/user/{{ description.user_id }}">{{description.username}}</a> arvio kirjasta:
@@ -46,8 +49,18 @@
     </p>
     {% endfor %}
   </ul>
+  <h2>Lisää uusi arvio</h2>
+
   <form action="/create_description" method="post">
-    Lisää uusi arvio:<br />
+    Kuinka monta tähteä haluat antaa kirjalle? <br />
+      <select name="stars">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    Arvio:<br />
       <textarea name="new_description" rows="8" cols="100", maxlength="1000"></textarea>
       <input type="hidden" name="item_id" value="{{ item.id }}">
       <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />

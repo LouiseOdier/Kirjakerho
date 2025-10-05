@@ -16,19 +16,14 @@ CREATE TABLE descriptions (
     id INTEGER PRIMARY KEY,
     item_id INTEGER REFERENCES items,
     user_id INTEGER REFERENCES users,
-    description TEXT
+    description TEXT,
+    stars INTEGER
 );
 
 CREATE TABLE classes (
     id INTEGER PRIMARY KEY,
     title TEXT,
     value TEXT
-);
-
-CREATE TABLE stars (
-    id INTEGER PRIMARY KEY,
-    grading TEXT,
-    value INTEGER
 );
 
 CREATE TABLE item_classes (

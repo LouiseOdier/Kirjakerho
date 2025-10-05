@@ -13,7 +13,7 @@ def get_all_classes():
 
     return classes
 
-def add_item(title, writer, description, user_id, classes):
+def add_item(title, writer, description, user_id, classes, stars):
     sql = "INSERT INTO items (title, writer, description, user_id) VALUES (?, ?, ?, ?)"
     db.execute(sql, [title, writer, description, user_id])
 
@@ -22,16 +22,24 @@ def add_item(title, writer, description, user_id, classes):
     sql = "INSERT INTO item_classes (item_id, title, value) VALUES (?, ?, ?)"
     for title, value in classes:
         db.execute(sql, [item_id, title, value])
+        
+    sql = "INSERT INTO descriptions (item_id, user_id, description, stars) VALUES (?, ?, ?, ?)"
+    db.execute(sql, [item_id, user_id, description, stars])
 
-def add_description(item_id, user_id, new_description):
-    sql = "INSERT INTO descriptions (item_id, user_id, description) VALUES (?, ?, ?)"
-    db.execute(sql, [item_id, user_id, new_description])
+
+def add_description(item_id, user_id, new_description, stars):
+    sql = "INSERT INTO descriptions (item_id, user_id, description, stars) VALUES (?, ?, ?, ?)"
+    db.execute(sql, [item_id, user_id, new_description, stars])
 
 def get_descriptions(item_id):
     sql = """SELECT descriptions.description, users.id user_id, users.username
             FROM descriptions, users
             WHERE descriptions.item_id = ? AND descriptions.user_id = users.id
             ORDER BY descriptions.id ASC"""
+    return db.query(sql, [item_id])
+
+def get_stars(item_id):
+    sql = """SELECT descriptions.stars FROM descriptions WHERE descriptions.item_id = ?"""
     return db.query(sql, [item_id])
 
 def get_classes(item_id):

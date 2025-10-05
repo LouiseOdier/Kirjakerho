@@ -57,8 +57,10 @@ def show_item(item_id):
         abort(404)
     classes = items.get_classes(item_id)
     descriptions = items.get_descriptions(item_id)
-     
-    return render_template("show_item.html", item=item, classes=classes, descriptions=descriptions)
+    stars=items.get_stars(item_id)
+    count=len(stars)
+    av_stars = int((sum(star[0] for star in stars))/count)
+    return render_template("show_item.html", item=item, classes=classes, descriptions=descriptions, av_stars=av_stars)
 
 @app.route("/new_item")
 def new_item():
@@ -94,7 +96,9 @@ def create_item():
                 abort(403)
             classes.append((class_title, class_value))
     
-    items.add_item(title, writer, description, user_id, classes)
+    stars=request.form["stars"]
+    
+    items.add_item(title, writer, description, user_id, classes, stars)
 
     return redirect("/books")
 
@@ -103,6 +107,7 @@ def create_description():
     require_login()
     check_csrf()
 
+    stars=request.form["stars"]
     new_description = request.form["new_description"]
     if len(new_description)>1000:
         abort(403)
@@ -112,7 +117,7 @@ def create_description():
         abort(403)
     user_id =session["user_id"]
 
-    items.add_description(item_id, user_id, new_description)
+    items.add_description(item_id, user_id, new_description, stars)
 
     return redirect("/item/" + str(item_id))
 
