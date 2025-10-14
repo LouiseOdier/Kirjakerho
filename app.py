@@ -34,7 +34,7 @@ def books():
 
 @app.route("/user/<int:user_id>")
 def show_user(user_id):
-    user=users.get_user(user_id)
+    user = users.get_user(user_id)
     if not user:
         abort(404)
     items = users.get_items(user_id)
@@ -51,19 +51,19 @@ def find_item():
         results = items.find_book_name(book_name)
     else:
         author = ""
-        book_name =""
+        book_name = ""
         results = []
     return render_template("find_item.html", author = author, book_name = book_name, results = results)
 
 @app.route("/item/<int:item_id>", methods=["GET", "POST"])
 def show_item(item_id):
-    item=items.get_item(item_id)
+    item = items.get_item(item_id)
     if not item:
         abort(404)
     classes = items.get_classes(item_id)
     descriptions = items.get_descriptions(item_id)
-    stars=items.get_stars(item_id)
-    count=len(stars)
+    stars = items.get_stars(item_id)
+    count = len(stars)
     av_stars = int((sum(star[0] for star in stars))/count)
     return render_template("show_item.html", item=item, classes=classes, descriptions=descriptions, av_stars=av_stars)
 
@@ -87,9 +87,9 @@ def create_item():
     description = request.form["description"]
     if len(description)>1000:
         abort(403)
-    user_id =session["user_id"]
+    user_id = session["user_id"]
 
-    all_classes=items.get_all_classes()
+    all_classes = items.get_all_classes()
 
     classes = []
     for entry in request.form.getlist("classes"):
@@ -120,7 +120,7 @@ def create_description():
     item = items.get_item(item_id)
     if not item:
         abort(403)
-    user_id =session["user_id"]
+    user_id = session["user_id"]
 
     items.add_description(item_id, user_id, new_description, stars)
 
@@ -129,7 +129,7 @@ def create_description():
 @app.route("/edit_item/<int:item_id>")
 def edit_item(item_id):
     require_login()
-    item=items.get_item(item_id)
+    item = items.get_item(item_id)
     if not item:
         abort(404)
     if item["user_id"] != session["user_id"]:
@@ -151,8 +151,8 @@ def update_item():
     require_login()
     check_csrf()
 
-    item_id =request.form["item_id"]
-    item=items.get_item(item_id)
+    item_id = request.form["item_id"]
+    item = items.get_item(item_id)
     if not item:
         abort(404)
     if item["user_id"] != session["user_id"]:
@@ -168,7 +168,7 @@ def update_item():
     if len(description)>1000:
         abort(403)
     
-    stars=request.form["stars"]
+    stars = request.form["stars"]
     print(stars)
     
     all_classes = items.get_all_classes()
@@ -197,9 +197,9 @@ def remove_item(item_id):
     if item["user_id"] != session["user_id"]:
         abort(403)
 
-    if request.method=="GET":
+    if request.method == "GET":
         return render_template("remove_item.html", item=item)
-    if request.method=="POST":
+    if request.method == "POST":
         check_csrf()
         if "remove" in request.form:
             items.remove_item(item_id)
@@ -229,10 +229,10 @@ def create():
 @app.route("/login", methods=["GET", "POST"])
 def login():
 
-    if request.method=="GET":
+    if request.method == "GET":
         return render_template("login.html")
     
-    if request.method=="POST":
+    if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
         

@@ -106,7 +106,7 @@ def find_author(query):
     return db.query(sql, [like])
 
 def find_book_name(query):
-    sql ="""SELECT id, title
+    sql = """SELECT id, title
             FROM items
             WHERE title LIKE ?
             ORDER BY id DESC"""
