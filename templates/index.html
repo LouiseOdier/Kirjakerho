@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
   <title>Kirjakerho</title>
 </head>
 
 <body>
+
     <h1> Kirjakerho </h1>
   <p>
     Tervetuloa kirjakerhoon. Kerhomme toimiin virtuaalisena lukupiirinä. Jäsenenä voit lisätä kerhomme sivulle lukeamiasi kirjoja
@@ -14,6 +16,9 @@
   {% if session.username %}
   <p>
     Olet kirjautunut nimellä {{ session.username }}, id_numerosi on {{session.user_id}}
+  </p>
+  <p>
+    Omalle kirjasivullesi pääset <a href="/user/{{session.user_id}}"> tästä </a>
   </p>
   <p>
     <a href="/logout">Kirjaudu ulos</a>
