@@ -20,7 +20,7 @@
     {% for class in classes %}
     <p>
       {{class}}: <br/>
-      <select name="classes">
+      <select name="classes" required>
         <option value="">(valitse)</option>
         {% for option in classes[class] %}
         <option value="{{ class }}:{{ option }}">{{option}}</option>
@@ -42,7 +42,7 @@
 
     <p>
       Kerro muille millaisena koita kirjan. Älä kuitenkaan tee juonipaljastuksia. <br />
-      <textarea name="description" rows="8" cols="100", maxlength="1000"></textarea>
+      <textarea name="description" rows="8" cols="100", maxlength="1000" required></textarea>
     </p>
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />
     <input type="submit" value="Lisää kirja" />
