@@ -14,11 +14,11 @@
   <div class="nav">
     <nav>
       <ul>
-        <a href="/">Etusivu</a>
+        <a href="/" class="back">Etusivu</a>
         {% if session.user_id %}
-        <a href="/logout">Kirjaudu ulos</a>
+        <a href="/logout" class="back">Kirjaudu ulos</a>
         {% else %}
-        <a href="/login">Kirjaudu sisään</a>
+        <a href="/login" class="back">Kirjaudu sisään</a>
         {% endif %}
       </ul>
     </nav>
@@ -27,6 +27,8 @@
   <div class="content">
     {% block content %}{% endblock %}
   </div>
+
+  <button class="back" style="margin-top: 30px;" onclick="history.back()">Takaisin edelliselle sivulle</button>
 </body>
 
 </html>
