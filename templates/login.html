@@ -16,11 +16,11 @@
   <form action="/login" method="post">
     <p>
       Syötä tunnus: <br />
-      <input type="text" name="username" />
+      <input type="text" class="free_text" name="username" />
     </p>
     <p>
       Syötä salasana: <br />
-      <input type="password" name="password" />
+      <input type="password" class="free_text" name="password" />
     </p>
     <input type="submit" class="back" value="Kirjaudu" />
   </form>
@@ -33,10 +33,7 @@
   {% endfor %}
   <p>
     Mikäli et ole vielä rekisteröitynyt, voit rekisteröityä täällä:
-    <a href="/register"> Rekisteröidy</a>
-  </p>
-  <p>
-    <a href="/">Takaisin etusivulle</a>
+    <a href="/register" class="button"> Rekisteröidy</a>
   </p>
 
   {% endblock %}

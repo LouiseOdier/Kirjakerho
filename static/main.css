@@ -35,10 +35,32 @@ body {
 }  
 
 .back {
-  background-color: rgb(131, 141, 131);
+  background-color: rgb(119, 142, 119);
   color: rgb(20, 49, 20);
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button {
+  background-color: rgb(20, 49, 20);
+  color: rgb(135, 169, 135);
+  border: none;
+  padding: 7px 7px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.free_text {
+  background-color: rgb(169, 199, 169);
+  color: rgb(20, 49, 20);
+  border: none;
+  padding: 8px 8px;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;

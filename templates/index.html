@@ -13,7 +13,7 @@
     </p>
     {% if session.username %}
     <p>
-      Omalle kirjasivullesi pääset <a href="/user/{{session.user_id}}"> tästä </a>
+      Omalle kirjasivullesi pääset <a href="/user/{{session.user_id}}" class="button"> tästä </a>
     </p>
     {% else %}
 
@@ -21,7 +21,7 @@
       Mikäli et ole jäsen voit luoda tunnuksen ilmaiseksi täällä:
     </p>
     <p>
-      <a href="/register">Luo tunnus</a>
+      <a href="/register" class="button">Luo tunnus</a>
     </p>
 
     {% endif %}
@@ -30,6 +30,6 @@
     <p>
       Kaikki arvioidut kirjat näet täältä, myös ilman tunnuksia:
     </p>
-    <a href="/books">Kirjat</a>
+    <a href="/books" class="button">Kirjat</a>
   </div>
 {% endblock %}

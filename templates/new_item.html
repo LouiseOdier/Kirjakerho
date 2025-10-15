@@ -8,17 +8,17 @@
   <form action="/create_item" method="post">
     <p>
       Kirjan nimi: <br />
-      <input type="text" name="title" maxlength="50" required/>
+      <input type="text" name="title" maxlength="50" class="free_text" required/>
     </p>
     <p>
       Kirjoittaja: <br />
-      <input type="text" name="writer" maxlenth="50" required/>
+      <input type="text" name="writer" maxlenth="50" class="free_text" required/>
     <h2>Kirjan luokittelu </h2>
     </p>
     {% for class in classes %}
     <p>
       {{class}}: <br/>
-      <select name="classes" class="back" required>
+      <select name="classes" class="button" required>
         <option value="">(valitse)</option>
         {% for option in classes[class] %}
         <option value="{{ class }}:{{ option }}">{{option}}</option>
@@ -29,7 +29,7 @@
     <h2>Lukijan arvio kirjasta</h2>
     <p>
       Kuinka monta tähteä haluat antaa kirjalle? <br />
-      <select name="stars">
+      <select name="stars" class="button">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -40,13 +40,13 @@
 
     <p>
       Kerro muille millaisena koit kirjan. Älä kuitenkaan tee juonipaljastuksia. <br />
-      <textarea name="description" rows="8" cols="100", maxlength="1000" required></textarea>
+      <textarea name="description" rows="8" cols="100", maxlength="1000" class="free_text" required></textarea>
     </p>
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />
-    <input type="submit" class="back" value="Lisää kirja" />
+    <input type="submit" class="button" value="Lisää kirja" />
   </form>
 
   <p>
-        <a href="/books" class="back">Takaisin kirjaluetteloon</a>
+        <a href="/books" class="button">Takaisin kirjaluetteloon</a>
     </p>
 {% endblock %}

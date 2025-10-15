@@ -11,7 +11,6 @@
   <p>Lähtökohtaisesti Kirjakerhon arvioitavaksi lisättyjä kirjoja ei poisteta. Poistaminen tulee kyseeseen mm. epäsopivan sisällön vuoksi.</p>
   <form action="/remove_item/{{item.id}}" method="post">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />
-    <input type="submit" name="remove" value="Poista kirja">
-    <input type="submit" name="back" value="Palaa takaisin">
+    <input type="submit" name="remove" class="button" value="Poista kirja">
     </form>
 {% endblock %}

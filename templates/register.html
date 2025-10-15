@@ -7,19 +7,17 @@
   <form action="/create" method="post">
     <p>
       Syötä tunnus: <br />
-      <input type="text" name="username" />
+      <input type="text" class="free_text" name="username" />
     </p>
     <p>
       Syötä salasana: <br />
-      <input type="password" name="password1" />
+      <input type="password" class="free_text" name="password1" />
     </p>
     <p>
       Salasana uudestaan: <br />
-      <input type="password" name="password2" />
+      <input type="password" class="free_text" name="password2" />
     </p>
-    <input type="submit" value="Luo tunnus" />
+    <input type="submit" class="button" value="Luo tunnus" />
   </form>
-  <p>
-    <a href="/">Takaisin etusivulle</a>
-  </p>
+
 {% endblock %}
