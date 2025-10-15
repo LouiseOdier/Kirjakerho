@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Etsi kirjoja</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
+
+{% block content %}
 
 <body>
     <h1> Etsi kirjoja </h1>
@@ -30,7 +29,4 @@
     <p>
         <li><a href="/books">Takaisin kirjaluetteloon</a></li>
     </p>
-    
-</body>
-
-</html>
+{% endblock %}

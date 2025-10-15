@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Rekisteröinti</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
+<h1>Luo tunnukset</h1>
   <form action="/create" method="post">
     <p>
       Syötä tunnus: <br />
@@ -24,6 +22,4 @@
   <p>
     <a href="/">Takaisin etusivulle</a>
   </p>
-</body>
-
-</html>
+{% endblock %}

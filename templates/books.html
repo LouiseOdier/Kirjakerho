@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Kirjat</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
+
     <h1> Kirjat </h1>
   {% if session.username %}
   <p>
@@ -38,6 +36,4 @@
     <a href="/">Takaisin etusivulle</a>
   </p>
 
-</body>
-
-</html>
+{% endblock %}

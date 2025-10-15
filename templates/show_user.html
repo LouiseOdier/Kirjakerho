@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Käyttäjä {{user.username}}</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
   <h1> Käyttäjä {{user.username}}</h1>
   <p>
     Käyttäjä on arvioinut yhteensä {{ items | count}} kirjaa.
@@ -20,6 +17,4 @@
     <a href="/">Takaisin etusivulle</a>
   </p>
   
-</body>
-
-</html>
+{% endblock %}

@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>{{item.title}}</title>
-  <style>
-    body {
-      width: 400px;
-      /* Important for wrapping */
-      white-space: normal;
-      overflow-wrap: break-word;
-    }
-  </style>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
+
   <h1> {{item.title}}</h1>
   {% if session.user_id == item.user_id%}
   <p>
@@ -70,6 +60,4 @@
   <p>
     <a href="/books">Takaisin kirjaluetteloon</a>
   </p>
-</body>
-
-</html>
+{% endblock %}

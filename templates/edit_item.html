@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Kirjan tietojen muokkaus</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
+
   <h1> Kirjan tietojen muokkaus</h1>
   <form action="/update_item" method="post">
     <p>
@@ -50,6 +48,4 @@
     <input type="submit" value="Päivitä kirjan tiedot" />
     <input type="submit" name="back" value="Palaa takaisin">
   </form>
-</body>
-
-</html>
+{% endblock %}

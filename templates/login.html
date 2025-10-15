@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Kirjautuminen</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
+  <link rel="stylesheet" href="/static/main.css">
   <h1>Kirjautuminen</h1>
   {% if session.username %}
   <p>
@@ -24,7 +22,7 @@
       Syötä salasana: <br />
       <input type="password" name="password" />
     </p>
-    <input type="submit" value="Kirjaudu" />
+    <input type="submit" class="back" value="Kirjaudu" />
   </form>
   {% endif %}
   
@@ -40,6 +38,5 @@
   <p>
     <a href="/">Takaisin etusivulle</a>
   </p>
-</body>
 
-</html>
+  {% endblock %}

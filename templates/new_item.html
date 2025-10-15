@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Uusi kirja</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
 
-<body>
+{% block content %}
+
   <h1> Lisää uusi Kirja</h1>
   <form action="/create_item" method="post">
     <p>
@@ -20,7 +18,7 @@
     {% for class in classes %}
     <p>
       {{class}}: <br/>
-      <select name="classes" required>
+      <select name="classes" class="back" required>
         <option value="">(valitse)</option>
         {% for option in classes[class] %}
         <option value="{{ class }}:{{ option }}">{{option}}</option>
@@ -41,16 +39,14 @@
     </p>
 
     <p>
-      Kerro muille millaisena koita kirjan. Älä kuitenkaan tee juonipaljastuksia. <br />
+      Kerro muille millaisena koit kirjan. Älä kuitenkaan tee juonipaljastuksia. <br />
       <textarea name="description" rows="8" cols="100", maxlength="1000" required></textarea>
     </p>
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" />
-    <input type="submit" value="Lisää kirja" />
+    <input type="submit" class="back" value="Lisää kirja" />
   </form>
 
   <p>
-        <li><a href="/books">Takaisin kirjaluetteloon</a></li>
+        <a href="/books" class="back">Takaisin kirjaluetteloon</a>
     </p>
-</body>
-
-</html>
+{% endblock %}

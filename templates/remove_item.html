@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-  <title>Kirjan poisto</title>
-</head>
+{% block title %}Kirjakerho{% endblock %}
+
+{% block content %}
 
 <body>
   <h1> Kirjan poisto</h1>
@@ -15,6 +14,4 @@
     <input type="submit" name="remove" value="Poista kirja">
     <input type="submit" name="back" value="Palaa takaisin">
     </form>
-</body>
-
-</html>
+{% endblock %}

@@ -4,6 +4,7 @@ body {
   max-width: 65em;
   font-family: sans-serif;
   background-color: rgb(108, 137, 108);
+  overflow-wrap: break-word;
   position: relative;
 }
 
@@ -28,7 +29,7 @@ body {
 .content {
   background-color: rgb(108, 137, 108);
   color: rgb(20, 49, 20);
-  font-size: 24px;
+  font-size: 20px;
   padding: 1em;
   margin: 0.5em 0;
 }  
@@ -42,6 +43,4 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-  bottom: 10px;
-  left: 10px;
 }
