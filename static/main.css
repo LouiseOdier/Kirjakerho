@@ -1,0 +1,29 @@
+
+body {
+  margin: auto;
+  max-width: 50em;
+  font-family: sans-serif;
+  background-color: rgb(108, 137, 108);
+  position: relative;
+}
+
+.header {
+  background-color: rgb(108, 137, 108);
+  color: rgb(20, 49, 20);
+  font-size: 38px;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+.nav {
+  background-color: rgb(108, 137, 108);
+  padding: 0.5em;
+  margin: 0.5em 0;
+  position: absolute;
+}
+
+.content {
+  background-color: rgb(108, 137, 108);
+  padding: 1em;
+  margin: 0.5em 0;
+}  
