@@ -1,51 +1,35 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
+{% block title %}Kirjakerho{% endblock %}
 
-<head>
-  <title>Kirjakerho</title>
+{% block content %}
   <link rel="stylesheet" href="/static/main.css">
-</head>
+  <div class="content">
 
-<body>
-  <div class="header">
-    <h1> Kirjakerho </h1>
   </div>
-  <p>
-    Tervetuloa kirjakerhoon. Kerhomme toimiin virtuaalisena lukupiirinä. Jäsenenä voit lisätä kerhomme sivulle lukeamiasi kirjoja
-    sekä kirjoitaa niistä arviosi.
-  </p>
-  {% if session.username %}
-  <p>
-    Olet kirjautunut nimellä {{ session.username }}, id_numerosi on {{session.user_id}}
-  </p>
-  <p>
-    Omalle kirjasivullesi pääset <a href="/user/{{session.user_id}}"> tästä </a>
-  </p>
-  <p>
-    <a href="/logout">Kirjaudu ulos</a>
-  </p>
-  {% else %}
+    <p>
+      Tervetuloa kirjakerhoon. Kerhomme toimiin virtuaalisena lukupiirinä. Jäsenenä voit lisätä kerhomme sivulle lukeamiasi kirjoja
+      sekä kirjoittaa niistä arviosi.
+    </p>
+    {% if session.username %}
+    <p>
+      Omalle kirjasivullesi pääset <a href="/user/{{session.user_id}}"> tästä </a>
+    </p>
+    {% else %}
 
-   <p>
-    <a href="/login">Kirjaudu sisään</a>
-  </p>
-  <p>
-    Mikäli et ole jäsen voit luoda tunnuksen ilmaiseksi täällä:
-  </p>
-  <p>
-    <a href="/register">Luo tunnus</a>
-  </p>
+    <p>
+      Mikäli et ole jäsen voit luoda tunnuksen ilmaiseksi täällä:
+    </p>
+    <p>
+      <a href="/register">Luo tunnus</a>
+    </p>
 
-  {% endif %}
+    {% endif %}
 
-  <h2>Arvioidut kirjat</h2>
-  <p>
-    Kaikki arvioidut kirjat näet täältä, myös ilman tunnuksia:
-  </p>
-  <a href="/books">Kirjat</a>
-
-
-</body>
-
-</html>
+    <h2>Arvioidut kirjat</h2>
+    <p>
+      Kaikki arvioidut kirjat näet täältä, myös ilman tunnuksia:
+    </p>
+    <a href="/books">Kirjat</a>
+  </div>
+{% endblock %}
