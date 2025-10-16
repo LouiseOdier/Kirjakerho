@@ -15,11 +15,12 @@
   {% else %}
 
   <p>
-    Mikäli haluat lisätä uuden kirjan,
-
-  <a href="/login" class="button">kirjaudu sisään</a>
+    Mikäli haluat lisätä uuden kirjan, kirjaudu sissään tai luo tunnukset oikeasta yläkulmasta
 
   {% endif %}
+  
+  <p>
+    Voit etsiä kirjoja alla olevan linkin takaa, joko kirjan nimellä tai kirjailijan nimellä. </p>
   
   <p>
     <a href="/find_item" class="button"> Etsi kirja</a>  
@@ -32,8 +33,5 @@
     <a href="/item/{{item.id}}">{{item.title}}</a><br />
     {% endfor %}
   </ul>
-<p>
-    <a href="/" class="button">Takaisin etusivulle</a>
-  </p>
 
 {% endblock %}
