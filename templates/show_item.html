@@ -27,16 +27,20 @@
     </ul>
   </p>
   {% endif %}
-  <h2>Kirjoitetut arviot</h2>
-  <p>
+     <p>
     Kirjan saamat tähdet: {{av_stars}}
   </p>
+  <br/>
+  <h2>Kirjoitetut arviot</h2>
   <ul>
     {% for description in descriptions %}
     Käyttäjän <a href="/user/{{ description.user_id }}">{{description.username}}</a> arvio kirjasta:
-    <p>
-      {{description.description.replace('\n', '<br>') | safe}}
-    </p>
+    
+      <div class="comment">
+        {{description.description.replace('\n', '<br>') | safe}}
+      </div>
+      <br/>
+
     {% endfor %}
   </ul>
   <h2>Lisää uusi arvio</h2>
@@ -50,11 +54,13 @@
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
+    <p>
     Arvio:<br />
       <textarea name="new_description" rows="8" cols="100", maxlength="1000" class="free_text" required></textarea>
       <input type="hidden" name="item_id" value="{{ item.id }}">
       <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}" /> <br />
       <input type="submit" class="button" value="Lisää"/>
+    </p>
   </form>
 
   <p>

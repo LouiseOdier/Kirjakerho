@@ -66,3 +66,15 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+.comment {
+  background-color: rgb(169, 199, 169);
+  color: rgb(20, 49, 20);
+  border: none;
+  margin: 0;
+  padding: 8px 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
