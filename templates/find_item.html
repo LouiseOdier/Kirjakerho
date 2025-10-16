@@ -11,21 +11,24 @@
     </p>
     <form action="/find_item" method="get">
         <p>
-            Hae kirjailijan nimellä: <input type="text" name="author" class="free_text" value="{{author}}"> <br/>
+            Hae kirjailijan nimellä: <input type="text" name="author" class="free_text" value="{{author}}"> 
+            <br/>
+            <br/>
             Hae kirjan nimellä (jokin nimen osa riittää): <input type="text" name="book_name" class="free_text" value="{{book_name}}">
         </p>
-        <input type="submit" class="button" value="Hae">
+        <input type="submit" class="button" value="Hae kirjaa">
     </form>
+    <br/>
 
     {% if author or book_name %}
     <h2>Haun tulokset</h2>
     <ul>
         {% for item in results %}
-        <li><a href="/item/{{item.id}}">{{item.title}}</a></li>
+        <a href="/item/{{item.id}}">{{item.title}}</a>
         {% endfor %}
     </ul>
     {% endif %}
-
+    <br/>
     <p>
         <a href="/books" class="button">Takaisin kirjaluetteloon</a>
     </p>
