@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Flask
-from flask import redirect, render_template, request, session, flash
+from flask import redirect, render_template, request, session, flash, make_response
 from flask import abort
 from werkzeug.security import generate_password_hash, check_password_hash
 import db
@@ -248,11 +248,45 @@ def login():
             return redirect("/login")
             #return "VIRHE: väärä tunnus tai salasana"
 
+@app.route("/add_image", methods=["GET", "POST"])
+def add_image():
+    require_login()
+
+    if request.method == "GET":
+        return render_template("add_image.html")
+
+    if request.method == "POST":
+        file = request.files["image"]
+        if not file.filename.endswith(".jpg"):
+            flash("VIRHE: väärä tiedostomuoto")
+            return redirect("/add_image")
+
+        image = file.read()
+        if len(image) > 100 * 1024:
+            flash("VIRHE: liian suuri kuva")
+            return redirect("/add_image")
+
+        user_id = session["user_id"]
+        users.update_image(user_id, image)
+        return redirect("/user/" + str(user_id))
+
+@app.route("/image/<int:user_id>")
+def show_image(user_id):
+    image = users.get_image(user_id)
+    if not image:
+        abort(404)
+
+    response = make_response(bytes(image))
+    response.headers.set("Content-Type", "image/jpeg")
+    return response
+
 @app.route("/logout")
 def logout():
     if "user_id" in session:
         del session["user_id"]
         del session["username"]
     return redirect("/")
+
+
 
 #Tämä on testi

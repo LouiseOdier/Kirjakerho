@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}Kirjakerho{% endblock %}
+
+{% block content %}
+
+<form action="/add_image" method="post" enctype="multipart/form-data">
+    <p>
+      Kuva: <input type="file" name="image" accept=".jpg" />
+    </p>
+    <input type="submit" class="button" value="Lähetä" />
+  </form>
+
+  {% for message in get_flashed_messages() %}
+  <p>
+    <b>{{ message }}</b>
+  </p>
+  {% endfor %}
+
+  {% endblock %}
