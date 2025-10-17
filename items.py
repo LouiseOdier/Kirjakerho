@@ -26,8 +26,6 @@ def add_item(title, writer, description, user_id, classes, stars):
     sql = "INSERT INTO descriptions (item_id, user_id, description, stars) VALUES (?, ?, ?, ?)"
     db.execute(sql, [item_id, user_id, description, stars])
 
-
-
 def add_description(item_id, user_id, new_description, stars):
     sql = "INSERT INTO descriptions (item_id, user_id, description, stars) VALUES (?, ?, ?, ?)"
     db.execute(sql, [item_id, user_id, new_description, stars])

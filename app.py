@@ -246,7 +246,6 @@ def login():
         else:
             flash("VIRHE: Väärä tunnus tai salasana")
             return redirect("/login")
-            #return "VIRHE: väärä tunnus tai salasana"
 
 @app.route("/add_image", methods=["GET", "POST"])
 def add_image():
@@ -286,7 +285,3 @@ def logout():
         del session["user_id"]
         del session["username"]
     return redirect("/")
-
-
-
-#Tämä on testi
