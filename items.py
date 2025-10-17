@@ -46,7 +46,7 @@ def get_classes(item_id):
     return db.query(sql, [item_id])
 
 def get_items():
-    sql = "SELECT id, title FROM items ORDER BY title DESC"
+    sql = "SELECT id, title FROM items ORDER BY title ASC"
     return db.query(sql)
 
 def get_item(item_id):
@@ -83,7 +83,7 @@ def update_item(item_id, title, writer, classes, description, stars):
     sql = "INSERT INTO item_classes (item_id, title, value) VALUES (?, ?, ?)"
     for title, value in classes:
         db.execute(sql, [item_id, title, value])
-
+    
     sql = "UPDATE descriptions SET description = ?, stars = ? WHERE id = ?"
     db.execute(sql, [description, stars, item_id])
 
