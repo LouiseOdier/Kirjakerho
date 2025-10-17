@@ -102,7 +102,7 @@ def create_item():
             classes.append((class_title, class_value))
     
     stars=request.form["stars"]
-    
+
     items.add_item(title, writer, description, user_id, classes, stars)
 
     return redirect("/books")
@@ -170,6 +170,7 @@ def update_item():
     
     stars = request.form["stars"]
     
+
     all_classes = items.get_all_classes()
     classes = []
     for entry in request.form.getlist("classes"):

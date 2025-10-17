@@ -6,16 +6,14 @@
 
     <h1> Kirjat </h1>
   {% if session.username %}
-  <p>
-    Olet kirjautunut nimellä {{ session.username }}
-  </p>
+   Voit lisätä kirja-arvioita alla olevan linkin kautta.
   <p>
     <a href="/new_item" class="button"> Lisää uusi kirja</a>
   </p>
   {% else %}
 
   <p>
-    Mikäli haluat lisätä uuden kirjan, kirjaudu sissään tai luo tunnukset oikeasta yläkulmasta
+    Mikäli haluat lisätä uuden kirjan, kirjaudu sisään tai luo tunnukset oikeasta yläkulmasta
 
   {% endif %}
   
@@ -28,7 +26,9 @@
   <br/>
 
   <h2>Arvioidut kirjat</h2>
-
+  <p>
+    Kaikki arvioidut kirja on listattu alla.
+  </p>
   <ul>
     {% for item in items %}
     <a href="/item/{{item.id}}">{{item.title}}</a><br />

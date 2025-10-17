@@ -20,6 +20,12 @@
         {% else %}
         <a href="/login" class="back">Kirjaudu sisään</a>
         {% endif %}
+        {% if session.user_id %}
+        <p>
+        Olet kirjautunut nimellä <br/>
+        {{ session.username }}
+        </p>
+        {% endif %}
       </ul>
     </nav>
   </div>
