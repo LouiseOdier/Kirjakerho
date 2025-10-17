@@ -84,7 +84,7 @@ def update_item(item_id, title, writer, classes, description, stars):
     for title, value in classes:
         db.execute(sql, [item_id, title, value])
     
-    sql = "UPDATE descriptions SET description = ?, stars = ? WHERE id = ?"
+    sql = "UPDATE descriptions SET description = ?, stars = ? WHERE item_id = ?"
     db.execute(sql, [description, stars, item_id])
 
 def remove_item(item_id):
