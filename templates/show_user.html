@@ -8,11 +8,13 @@
   {% if user.has_image %}
     <img src="/image/{{ user.id }}" />
 
-  {% else%}
-  <p>
-    Voit lisätä itsellesi profiilikuvan tästä: 
-    <a href="/add_image" class="button">Lisää profiilikuva</a>
-  </p>
+  {% else %}
+    {% if session.user_id == user.id%}
+    <p>
+      Voit lisätä itsellesi profiilikuvan tästä: 
+      <a href="/add_image" class="button">Lisää profiilikuva</a>
+    </p>
+    {% endif %}
   {% endif %}
   
   <p>
