@@ -169,7 +169,6 @@ def update_item():
         abort(403)
     
     stars = request.form["stars"]
-    print(stars)
     
     all_classes = items.get_all_classes()
     classes = []
