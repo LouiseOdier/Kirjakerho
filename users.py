@@ -37,3 +37,8 @@ def get_image(user_id):
     sql = """SELECT image FROM users WHERE id = ?"""
     result = db.query(sql, [user_id])
     return result[0] ["image"] if result else None
+
+def check_user(user_name):
+    sql = """SELECT id FROM users WHERE username = ?"""
+    result = db.query(sql, [user_name])
+    return result[0] if result else None

@@ -217,12 +217,16 @@ def create():
     password1 = request.form["password1"]
     password2 = request.form["password2"]
     if password1 != password2:
-        return "VIRHE: salasanat eivät ole samat"
+        flash ("VIRHE: salasanat eivät ole samat")
+        return redirect("/register")
     
-    try:
-        users.create_user(username, password1)
-    except sqlite3.IntegrityError:
-        return "VIRHE: tunnus on jo varattu"
+    user_exists=users.check_user(username)
+
+    if user_exists:
+        flash("Tunnus on jo varattu")
+        return redirect("/register")
+
+    users.create_user(username, password1)
 
     return redirect("/login")
 
